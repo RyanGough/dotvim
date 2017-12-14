@@ -20,6 +20,12 @@ Plug 'kien/ctrlp.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'davidhalter/jedi-vim'
+Plug 'fatih/vim-go'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'tpope/vim-fugitive'
+Plug 'Shougo/neocomplete'
 
 call plug#end()
 
