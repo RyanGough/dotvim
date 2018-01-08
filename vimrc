@@ -15,17 +15,18 @@ set relativenumber
 " plugins via vim-plug
 call plug#begin()
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'kien/ctrlp.vim'
-Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
-Plug 'davidhalter/jedi-vim'
 Plug 'fatih/vim-go'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Shougo/neocomplete'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
-Plug 'tpope/vim-fugitive'
-Plug 'Shougo/neocomplete'
+Plug 'jodosha/vim-godebug'
 
 call plug#end()
 
@@ -34,27 +35,30 @@ set t_Co=256
 colorscheme molokai
 let g:airline_theme='deep_space'
 
-" syntastic settings
-let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_full_redraws = 1
-let g:syntastic_javascript_checkers = ['eslint']
-
-
-" Disable arrow movement, resize splits instead.
-
-if get(g:, 'elite_mode')
-    nnoremap <Up>    :resize +2<CR>
-    nnoremap <Down>  :resize -2<CR>
-    nnoremap <Left>  :vertical resize +2<CR>
-    nnoremap <Right> :vertical resize -2<CR>
-endif
-
-" patched fonts for powerline to look good
-let g:airline_powerline_fonts = 1
-
 " ctrlp stuff
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.lbb,*.pyc,*/node_modules/*,*/build/*,*/out/*
+ 
+" Disable AutoComplPop.
+ let g:acp_enableAtStartup = 0
+ " Use neocomplete.
+ let g:neocomplete#enable_at_startup = 1
+ " Use smartcase.
+ let g:neocomplete#enable_smart_case = 1
+ " Set minimum syntax keyword length.
+ let g:neocomplete#sources#syntax#min_keyword_length = 3
+ " auto close preview
+ let g:neocomplet#enable_auto_close_preview = 1
+ " neosnippet
+let g:neosnippet#enable_snipmate_compatibility=1
+let g:go_snippet_engine = "neosnippet"
+let g:neosnippet#snippets_directory='~/.vim/plugged/vim-go/gosnippets/snippets,~/mysnippets'
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" To conceal snippet markers
+" if has('conceal')
+"   set conceallevel=2 concealcursor=niv
+"   endif
+"
