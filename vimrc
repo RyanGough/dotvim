@@ -7,11 +7,6 @@ syntax on
 " set indentation
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
-" set absolute line number on current line,
-" relative on all others
-set number
-set relativenumber
-
 " plugins via vim-plug
 call plug#begin()
 Plug 'tpope/vim-sensible'
@@ -26,7 +21,6 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
-Plug 'jodosha/vim-godebug'
 
 call plug#end()
 
